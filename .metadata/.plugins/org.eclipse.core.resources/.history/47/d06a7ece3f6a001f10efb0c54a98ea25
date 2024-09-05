@@ -1,0 +1,13 @@
+package com.app.twitter.repository;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.app.twitter.entity.Tweet;
+import com.app.twitter.entity.User;
+
+public interface TweetRepository extends JpaRepository<Tweet, Long> {
+    List<Tweet> findByUser(User user);
+    List<Tweet> findAllByOrderByCreatedAtDesc();
+}

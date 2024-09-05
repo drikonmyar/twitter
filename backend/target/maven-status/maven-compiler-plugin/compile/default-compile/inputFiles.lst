@@ -1,0 +1,10 @@
+/Users/nabyendu/Documents/Project/twitter/backend/src/main/java/com/app/twitter/TwitterApplication.java
+/Users/nabyendu/Documents/Project/twitter/backend/src/main/java/com/app/twitter/config/SecurityConfig.java
+/Users/nabyendu/Documents/Project/twitter/backend/src/main/java/com/app/twitter/controller/TweetController.java
+/Users/nabyendu/Documents/Project/twitter/backend/src/main/java/com/app/twitter/controller/UserController.java
+/Users/nabyendu/Documents/Project/twitter/backend/src/main/java/com/app/twitter/entity/Tweet.java
+/Users/nabyendu/Documents/Project/twitter/backend/src/main/java/com/app/twitter/entity/User.java
+/Users/nabyendu/Documents/Project/twitter/backend/src/main/java/com/app/twitter/repository/TweetRepository.java
+/Users/nabyendu/Documents/Project/twitter/backend/src/main/java/com/app/twitter/repository/UserRepository.java
+/Users/nabyendu/Documents/Project/twitter/backend/src/main/java/com/app/twitter/service/TweetService.java
+/Users/nabyendu/Documents/Project/twitter/backend/src/main/java/com/app/twitter/service/UserService.java

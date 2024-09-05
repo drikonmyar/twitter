@@ -1,0 +1,11 @@
+spring.application.name=twitter
+
+# Database configuration
+spring.datasource.url=jdbc:postgresql://localhost:5432/twitter_clone
+spring.datasource.username=your_username
+spring.datasource.password=your_password
+spring.jpa.hibernate.ddl-auto=update
+
+# JWT settings
+jwt.secret=your_jwt_secret_key
+jwt.expiration=86400000

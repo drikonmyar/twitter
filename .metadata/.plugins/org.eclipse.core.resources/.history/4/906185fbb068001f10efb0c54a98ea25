@@ -1,0 +1,21 @@
+package com.app.twitter.controller;
+
+@RestController
+@RequestMapping("/tweets")
+public class TweetController {
+    @Autowired
+    private TweetService tweetService;
+
+    @PostMapping
+    public ResponseEntity<Tweet> createTweet(@RequestBody Map<String, String> payload, Principal principal) {
+        String content = payload.get("content");
+        String username = principal.getName();
+        Tweet tweet = tweetService.createTweet(content, username);
+        return ResponseEntity.ok(tweet);
+    }
+
+    @GetMapping
+    public ResponseEntity<List<Tweet>> getAllTweets() {
+        return ResponseEntity.ok(tweetService.getAllTweets());
+    }
+}

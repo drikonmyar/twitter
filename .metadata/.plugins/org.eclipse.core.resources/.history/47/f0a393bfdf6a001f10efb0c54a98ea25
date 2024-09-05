@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Home</title>
+</head>
+<body>
+    <h1>Welcome, [[${username}]]!</h1>
+    <h2>Your Tweets:</h2>
+    <ul>
+        <li th:each="tweet : ${tweets}">
+            <p th:text="${tweet.content}">Tweet content</p>
+        </li>
+    </ul>
+</body>
+</html>

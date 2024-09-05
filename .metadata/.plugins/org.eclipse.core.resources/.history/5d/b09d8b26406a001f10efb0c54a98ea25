@@ -1,0 +1,5 @@
+package com.app.twitter.controller;
+
+public class UserController {
+
+}

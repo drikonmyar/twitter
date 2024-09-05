@@ -1,0 +1,5 @@
+package com.app.twitter.entity;
+
+public class Tweet {
+
+}

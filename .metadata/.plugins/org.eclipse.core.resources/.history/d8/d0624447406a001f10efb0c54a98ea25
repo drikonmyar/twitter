@@ -1,0 +1,36 @@
+package com.app.twitter.controller;
+
+import java.security.Principal;
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.app.twitter.entity.Tweet;
+import com.app.twitter.service.TweetService;
+
+@RestController
+@RequestMapping("/tweets")
+public class TweetController {
+    @Autowired
+    private TweetService tweetService;
+
+    @PostMapping
+    public ResponseEntity<Tweet> createTweet(@RequestBody Map<String, String> payload, Principal principal) {
+        String content = payload.get("content");
+        String username = principal.getName();
+        Tweet tweet = tweetService.createTweet(content, username);
+        return ResponseEntity.ok(tweet);
+    }
+
+    @GetMapping
+    public ResponseEntity<List<Tweet>> getAllTweets() {
+        return ResponseEntity.ok(tweetService.getAllTweets());
+    }
+}

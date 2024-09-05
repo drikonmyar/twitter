@@ -1,0 +1,5 @@
+package com.app.twitter.repository;
+
+public interface TweetRepository {
+
+}

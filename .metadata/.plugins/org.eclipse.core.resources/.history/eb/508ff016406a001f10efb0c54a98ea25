@@ -1,0 +1,33 @@
+package com.app.twitter.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
+
+import com.app.twitter.entity.Tweet;
+import com.app.twitter.entity.User;
+import com.app.twitter.repository.TweetRepository;
+import com.app.twitter.repository.UserRepository;
+
+@Service
+public class TweetService {
+    @Autowired
+    private TweetRepository tweetRepository;
+
+    @Autowired
+    private UserRepository userRepository;
+
+    public Tweet createTweet(String content, String username) {
+        User user = userRepository.findByUsername(username).orElseThrow(() -> new UsernameNotFoundException("User not found"));
+        Tweet tweet = new Tweet();
+        tweet.setContent(content);
+        tweet.setUser(user);
+        return tweetRepository.save(tweet);
+    }
+
+    public List<Tweet> getAllTweets() {
+        return tweetRepository.findAllByOrderByCreatedAtDesc();
+    }
+}
