@@ -68,7 +68,6 @@ INDEX VERSION 1.134+/Users/nabyendu/Documents/Project/twitter/.metadata/.plugins
 421179612.index
 1824375306.index
 439936435.index
-1476245916.index
 3524633680.index
 124377970.index
 482966453.index

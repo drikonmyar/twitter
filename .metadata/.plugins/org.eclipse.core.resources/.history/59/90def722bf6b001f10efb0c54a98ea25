@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Home</h2>
+        <form action="/tweet" method="post">
+            <textarea name="content" id="content" placeholder="What's happening?" required></textarea><br><br>
+            <input type="submit" value="Tweet">
+        </form>
+        <h3>Your Tweets</h3>
+        <div id="tweets">
+            <!-- Tweets will be rendered here by the server -->
+            <ul>
+                <!-- Example tweet item -->
+                <!-- <li>Example tweet content</li> -->
+            </ul>
+        </div>
+        <p><a href="/logout">Logout</a></p>
+    </div>
+</body>
+</html>

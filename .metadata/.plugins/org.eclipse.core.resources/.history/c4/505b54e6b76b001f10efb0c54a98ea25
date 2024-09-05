@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Home</h2>
+        <form action="/tweet" method="post">
+            <textarea name="content" id="content" placeholder="What's happening?" required></textarea><br><br>
+            <input type="submit" value="Tweet">
+        </form>
+		<h3>Your Tweets</h3>
+		    <ul>
+		        <li th:each="tweet : ${tweets}">
+		            <p th:text="${tweet.content}">Tweet content</p>
+		        </li>
+		    </ul>
+        <p><a href="/logout">Logout</a></p>
+    </div>
+</body>
+</html>
