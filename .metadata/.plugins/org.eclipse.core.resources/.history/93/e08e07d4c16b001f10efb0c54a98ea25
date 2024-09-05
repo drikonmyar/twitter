@@ -19,7 +19,7 @@ public class TweetService {
         return tweetRepository.save(tweet);
     }
     
-    public List<Tweet> findAllTweets() {
-        return tweetRepository.findAll();
+    public List<Tweet> findTweetsByUser(User user) {
+        return tweetRepository.findByUser(user);
     }
 }

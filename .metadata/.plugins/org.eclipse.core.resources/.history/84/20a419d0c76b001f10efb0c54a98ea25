@@ -1,7 +1,6 @@
 package com.app.twitter.entity;
 
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -23,11 +22,6 @@ public class Tweet {
     private User user;
     
     private LocalDateTime timestamp = LocalDateTime.now();
-    
-    public String getFormattedTimestamp() {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("hh:mm a, dd MMM");
-        return timestamp.format(formatter);
-    }
 
     // Getters and Setters
 }

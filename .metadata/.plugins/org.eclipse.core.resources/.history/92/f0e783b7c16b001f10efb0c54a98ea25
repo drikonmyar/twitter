@@ -8,5 +8,5 @@ import com.app.twitter.entity.User;
 import java.util.List;
 
 public interface TweetRepository extends JpaRepository<Tweet, Long> {
-    List<Tweet> findAll();
+    List<Tweet> findByUser(User user);
 }

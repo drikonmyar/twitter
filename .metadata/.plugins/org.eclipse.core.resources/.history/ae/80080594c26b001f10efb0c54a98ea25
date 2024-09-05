@@ -18,14 +18,8 @@
 		<h3>Your Tweets</h3>
 		<div id="tweets">
 			<ul>
-				<!-- Iterate through the tweets and display the username and tweet content -->
 				<li th:each="tweet : ${tweets}">
-					<!-- Display the username associated with the tweet -->
-					<strong th:text="${tweet.user.username}"></strong>:
-					<span th:text="${tweet.content}"></span>
-					<br>
-					<!-- Display the timestamp formatted as date and time -->
-					<small th:text="${tweet.formattedTimestamp}"></small>
+					<p th:text="${tweet.content}">Tweet content</p>
 				</li>
 			</ul>
 		</div>

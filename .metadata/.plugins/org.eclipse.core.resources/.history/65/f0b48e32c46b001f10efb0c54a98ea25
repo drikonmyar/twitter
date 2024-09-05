@@ -25,7 +25,7 @@
 					<span th:text="${tweet.content}"></span>
 					<br>
 					<!-- Display the timestamp formatted as date and time -->
-					<small th:text="${tweet.formattedTimestamp}"></small>
+					<small th:text="${#dates.format(tweet.timestamp, 'dd-MM-yyyy HH:mm')}"></small>
 				</li>
 			</ul>
 		</div>

@@ -27,7 +27,7 @@ public class TweetController {
     public String home(Model model) {
         String username = ((UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUsername();
         User user = userService.findUserByUsername(username);
-        List<Tweet> tweets = tweetService.findAllTweets();
+        List<Tweet> tweets = tweetService.findTweetsByUser(user);
         model.addAttribute("tweets", tweets);
         return "home";
     }
