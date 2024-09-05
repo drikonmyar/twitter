@@ -6,31 +6,170 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Home</title>
 	<link rel="stylesheet" href="/css/styles.css">
+	<style>
+		/* Set body and html to full height */
+		html,
+		body {
+			margin: 0;
+			padding: 0;
+			width: 100%;
+			height: 100%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+		.container {
+			display: flex;
+			justify-content: space-between;
+			height: 90%;
+			width: 90%;
+		}
+
+		.left-panel,
+		.right-panel,
+		.main-panel {
+			padding: 10px;
+			box-sizing: border-box;
+			/* Ensure padding does not add to element width */
+		}
+
+		.left-panel {
+			width: 30%;
+			display: flex;
+			flex-direction: column;
+			gap: 20px;
+		}
+
+		.main-panel {
+			width: 70%;
+		}
+
+		.section {
+			padding: 20px;
+			border-radius: 8px;
+			height: 100%;
+			/* Ensure each section fills its container */
+		}
+
+		.new-tweet {
+			background-color: #ff4d4d;
+			/* Red */
+			flex: 1;
+			/* Allow flexible height */
+		}
+
+		.user-details {
+			background-color: #33cc33;
+			/* Green */
+			flex: 1;
+			/* Allow flexible height */
+		}
+
+		.tweet-feed {
+			background-color: #66ccff;
+			/* Light Blue */
+			height: 100%;
+			/* Fill the container */
+			max-height: 100%;
+			/* Fill available height */
+			overflow-y: auto;
+			/* Allow scrolling if needed */
+			padding: 10px;
+		}
+
+		.tweet-list {
+			max-height: 80vh;
+			/* Limit the height of the tweet list */
+			overflow-y: auto;
+			/* Enable scrolling */
+			padding: 10px;
+			background-color: #ffffff;
+			/* Set background for better readability */
+			border-radius: 8px;
+		}
+
+		.tweet-list ul {
+			list-style-type: none;
+			/* Remove bullet points */
+			padding: 0;
+			/* Remove padding */
+		}
+
+		.tweet-list li {
+			margin-bottom: 10px;
+			/* Spacing between tweets */
+		}
+
+		/* Style for logout button */
+		.logout-button {
+			position: absolute;
+			top: 20px;
+			right: 20px;
+		}
+	</style>
 </head>
 
 <body>
-	<div class="container">
-		<h2>Home</h2>
-		<form action="/tweet" method="post">
-			<textarea name="content" id="content" placeholder="What's happening?" required></textarea><br><br>
-			<input type="submit" value="Tweet">
-		</form>
-		<h3>Your Tweets</h3>
-		<div id="tweets">
-			<ul>
-				<!-- Iterate through the tweets and display the username and tweet content -->
-				<li th:each="tweet : ${tweets}">
-					<!-- Display the username associated with the tweet -->
-					<strong th:text="${tweet.user.username}"></strong>:
-					<span th:text="${tweet.content}"></span>
-					<br>
-					<!-- Display the timestamp formatted as date and time -->
-					<small th:text="${tweet.formattedTimestamp}"></small>
-				</li>
-			</ul>
+	<div class="home-container">
+		<!-- Left Panel -->
+		<div class="left-panel">
+			<!-- New Tweet Section -->
+			<div class="section new-tweet">
+				<h2>New Tweet</h2>
+				<form action="/tweet" method="post">
+					<textarea name="content" id="content" placeholder="What's happening?" required></textarea><br><br>
+					<input type="submit" value="Tweet">
+				</form>
+			</div>
+
+			<!-- User Details Section -->
+			<div class="section user-details">
+				<h3>User Details</h3>
+				<p>Name: <span th:text="${username}"></span></p>
+				<p>Email: <span th:text="${email}"></span></p>
+			</div>
 		</div>
-		<p><a href="/logout">Logout</a></p>
+
+		<!-- Main Panel -->
+		<div class="main-panel">
+			<!-- Tweet Feed Section -->
+			<div class="section tweet-feed">
+				<h3>Your Tweets</h3>
+				<div class="tweet-list" id="tweetList">
+					<ul>
+						<!-- Iterate through the tweets and display the username and tweet content -->
+						<li th:each="tweet : ${tweets}">
+							<!-- Display the username associated with the tweet -->
+							<strong th:text="${tweet.user.username}"></strong>:
+							<span th:text="${tweet.content}"></span>
+							<br>
+							<!-- Display the timestamp formatted as date and time -->
+							<small th:text="${tweet.formattedTimestamp}"></small>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
 	</div>
+
+	<!-- Logout Button -->
+	<p class="logout-button"><a href="/logout">Logout</a></p>
+
+	<script>
+		// Function to scroll to the bottom of the tweet list
+		function scrollToBottom() {
+			const tweetList = document.getElementById('tweetList');
+			setTimeout(() => {
+				tweetList.scrollTop = tweetList.scrollHeight;
+			}, 100); // Delay to ensure the DOM is updated with the new tweet
+		}
+
+		// Call scrollToBottom on page load to move the scroll to the bottom initially
+		window.onload = function () {
+			scrollToBottom();
+		};
+	</script>
 </body>
 
 </html>

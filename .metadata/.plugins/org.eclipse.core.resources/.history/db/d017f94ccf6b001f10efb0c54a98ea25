@@ -126,8 +126,8 @@
 			<!-- User Details Section -->
 			<div class="section user-details">
 				<h3>User Details</h3>
-				<p>Name: <span th:text="${username}"></span></p>
-				<p>Email: <span th:text="${email}"></span></p>
+				<p>Name: </p>
+				<p>Email: </p>
 			</div>
 		</div>
 

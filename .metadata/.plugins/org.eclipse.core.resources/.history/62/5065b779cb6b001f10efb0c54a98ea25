@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <style>
+        .container {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .left-panel, .right-panel {
+            width: 30%;
+            padding: 10px;
+        }
+        
+        .main-panel {
+            width: 60%;
+            padding: 10px;
+        }
+        
+        .section {
+            margin-bottom: 20px;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        
+        .new-tweet {
+            background-color: #ff4d4d; /* Red */
+        }
+        
+        .user-details {
+            background-color: #33cc33; /* Green */
+        }
+        
+        .tweet-feed {
+            background-color: #66ccff; /* Light Blue */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Left Panel -->
+        <div class="left-panel">
+            <!-- New Tweet Section -->
+            <div class="section new-tweet">
+                <h2>New Tweet</h2>
+                <form action="/tweet" method="post">
+                    <textarea name="content" id="content" placeholder="What's happening?" required></textarea><br><br>
+                    <input type="submit" value="Tweet">
+                </form>
+            </div>
+
+            <!-- User Details Section -->
+            <div class="section user-details">
+                <h3>User Details</h3>
+                <p>Name: </p>
+                <p>Email: </p>
+            </div>
+        </div>
+
+        <!-- Main Panel -->
+        <div class="main-panel">
+            <!-- Tweet Feed Section -->
+            <div class="section tweet-feed">
+                <h3>Your Tweets</h3>
+                <ul>
+                    <!-- Iterate through the tweets and display the username and tweet content -->
+                    <li th:each="tweet : ${tweets}">
+                        <!-- Display the username associated with the tweet -->
+                        <strong th:text="${tweet.user.username}"></strong>:
+                        <span th:text="${tweet.content}"></span>
+                        <br>
+                        <!-- Display the timestamp formatted as date and time -->
+                        <small th:text="${tweet.formattedTimestamp}"></small>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <p><a href="/logout">Logout</a></p>
+</body>
+
+</html>

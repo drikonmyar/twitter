@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Home</title>
+	<link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<body>
+	<div class="container">
+		<h2>Home</h2>
+		<form action="/tweet" method="post">
+			<textarea name="content" id="content" placeholder="What's happening?" required></textarea><br><br>
+			<input type="submit" value="Tweet">
+		</form>
+		<h3>Your Tweets</h3>
+		<div id="tweets">
+			<ul>
+				<!-- Iterate through the tweets and display the username and tweet content -->
+				<li th:each="tweet : ${tweets}">
+					<!-- Display the username associated with the tweet -->
+					<strong th:text="${tweet.user.username}"></strong>:
+					<span th:text="${tweet.content}"></span>
+					<br>
+					<!-- Display the timestamp formatted as date and time -->
+					<small th:text="${tweet.formattedTimestamp}"></small>
+				</li>
+			</ul>
+		</div>
+		<p><a href="/logout">Logout</a></p>
+	</div>
+</body>
+
+</html>

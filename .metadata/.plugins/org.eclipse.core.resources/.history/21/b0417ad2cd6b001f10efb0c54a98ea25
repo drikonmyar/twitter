@@ -126,8 +126,8 @@
 			<!-- User Details Section -->
 			<div class="section user-details">
 				<h3>User Details</h3>
-				<p>Name: <span th:text="${username}"></span></p>
-				<p>Email: <span th:text="${email}"></span></p>
+				<p>Name: </p>
+				<p>Email: </p>
 			</div>
 		</div>
 
@@ -136,7 +136,7 @@
 			<!-- Tweet Feed Section -->
 			<div class="section tweet-feed">
 				<h3>Your Tweets</h3>
-				<div class="tweet-list" id="tweetList">
+				<div class="tweet-list">
 					<ul>
 						<!-- Iterate through the tweets and display the username and tweet content -->
 						<li th:each="tweet : ${tweets}">
@@ -155,21 +155,6 @@
 
 	<!-- Logout Button -->
 	<p class="logout-button"><a href="/logout">Logout</a></p>
-
-	<script>
-		// Function to scroll to the bottom of the tweet list
-		function scrollToBottom() {
-			const tweetList = document.getElementById('tweetList');
-			setTimeout(() => {
-				tweetList.scrollTop = tweetList.scrollHeight;
-			}, 100); // Delay to ensure the DOM is updated with the new tweet
-		}
-
-		// Call scrollToBottom on page load to move the scroll to the bottom initially
-		window.onload = function () {
-			scrollToBottom();
-		};
-	</script>
 </body>
 
 </html>
