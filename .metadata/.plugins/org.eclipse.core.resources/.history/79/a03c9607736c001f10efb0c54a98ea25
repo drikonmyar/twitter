@@ -81,25 +81,34 @@ p {
 	text-align: center;
 }
 
+/* Ensure there is enough space for the heart icon on the right */
 .tweet-list li {
 	position: relative;
-	/* Necessary to position the like button relative to the li */
-	padding-right: 50px;
-	/* Provide space for the like button */
+	/* For absolute positioning of the heart icon */
+	padding-right: 70px;
+	/* Padding space for the heart icon */
+	padding-bottom: 10px;
+	/* Add padding at the bottom */
+	border-bottom: 1px solid #e0e0e0;
 }
 
+/* Style for the heart icon */
 .like-button {
 	position: absolute;
 	right: 10px;
-	top: 10px;
-	/* Adjust top positioning if needed */
+	/* Position the heart button on the right */
+	top: 50%;
+	/* Align vertically in the middle of the tweet */
+	transform: translateY(-50%);
+	/* Center the icon vertically */
 	color: #999;
 	cursor: pointer;
-	font-size: 14px;
-	display: inline-flex;
+	font-size: 18px;
+	display: flex;
 	align-items: center;
 }
 
+/* Optional hover effect */
 .like-button i {
 	margin-right: 5px;
 	transition: color 0.3s ease;
@@ -107,9 +116,11 @@ p {
 
 .like-button:hover i {
 	color: #e74c3c;
+	/* Red color on hover */
 }
 
+/* Adjust size and color for the like count */
 .like-button span {
-	font-size: 12px;
+	font-size: 14px;
 	color: #333;
 }

@@ -83,16 +83,16 @@ p {
 
 .tweet-list li {
 	position: relative;
-	/* Necessary to position the like button relative to the li */
-	padding-right: 50px;
-	/* Provide space for the like button */
+	/* Necessary for positioning the like button */
+	padding-right: 70px;
+	/* Increase the padding on the right side to avoid overlap */
 }
 
 .like-button {
 	position: absolute;
 	right: 10px;
 	top: 10px;
-	/* Adjust top positioning if needed */
+	/* Adjust top position */
 	color: #999;
 	cursor: pointer;
 	font-size: 14px;

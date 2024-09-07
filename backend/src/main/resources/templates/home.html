@@ -2,233 +2,259 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-    <link rel="stylesheet" href="/css/styles.css">
-    <style>
-        /* General reset and basic styling */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Home</title>
+	<link rel="stylesheet" href="/css/styles.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+	<style>
+		/* General reset and basic styling */
+		* {
+			box-sizing: border-box;
+			margin: 0;
+			padding: 0;
+		}
 
-        body, html {
-            width: 100%;
-            height: 100%;
-            font-family: 'Arial', sans-serif;
-            background-color: #f0f2f5;
-            color: #333;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden; /* Prevent scrolling the body */
-        }
+		body,
+		html {
+			width: 100%;
+			height: 100%;
+			font-family: 'Arial', sans-serif;
+			background-color: #f0f2f5;
+			color: #333;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			overflow: hidden;
+			/* Prevent scrolling the body */
+		}
 
-        .home-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            width: 90%;
-            height: 90%;
-            background-color: #fff;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
-            overflow: hidden; /* Ensure nothing overflows */
-        }
+		.home-container {
+			display: flex;
+			justify-content: space-between;
+			align-items: flex-start;
+			width: 90%;
+			height: 90%;
+			background-color: #fff;
+			box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+			border-radius: 10px;
+			overflow: hidden;
+			/* Ensure nothing overflows */
+		}
 
-        .left-panel {
-            width: 30%;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            padding: 20px;
-            background-color: #f8f9fa;
-            border-right: 1px solid #e0e0e0;
-        }
+		.left-panel {
+			width: 30%;
+			display: flex;
+			flex-direction: column;
+			gap: 20px;
+			padding: 20px;
+			background-color: #f8f9fa;
+			border-right: 1px solid #e0e0e0;
+		}
 
-        .main-panel {
-            width: 70%;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-        }
+		.main-panel {
+			width: 70%;
+			padding: 20px;
+			display: flex;
+			flex-direction: column;
+		}
 
-        .section {
-            background-color: #fff;
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-        }
+		.section {
+			background-color: #fff;
+			border-radius: 8px;
+			padding: 20px;
+			margin-bottom: 20px;
+			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+		}
 
-        .new-tweet {
-            background-color: #ff4d4d;
-            color: #fff;
-        }
+		.new-tweet {
+			background-color: #ff4d4d;
+			color: #fff;
+		}
 
-        .new-tweet h2 {
-            margin-bottom: 10px;
-        }
+		.new-tweet h2 {
+			margin-bottom: 10px;
+		}
 
-        .new-tweet textarea {
-            width: 100%;
-            height: 100px;
-            padding: 10px;
-            border-radius: 8px;
-            border: none;
-            margin-bottom: 10px;
-            resize: none;
-            font-size: 14px;
-        }
+		.new-tweet textarea {
+			width: 100%;
+			height: 100px;
+			padding: 10px;
+			border-radius: 8px;
+			border: none;
+			margin-bottom: 10px;
+			resize: none;
+			font-size: 14px;
+		}
 
-        .new-tweet input[type="submit"] {
-            background-color: #fff;
-            color: #ff4d4d;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
+		.new-tweet input[type="submit"] {
+			background-color: #fff;
+			color: #ff4d4d;
+			padding: 10px 20px;
+			border: none;
+			border-radius: 8px;
+			cursor: pointer;
+			transition: background-color 0.3s;
+		}
 
-        .new-tweet input[type="submit"]:hover {
-            background-color: #ff7878;
-        }
+		.new-tweet input[type="submit"]:hover {
+			background-color: #ff7878;
+		}
 
-        .user-details {
-            background-color: #33cc33;
-            color: #fff;
-        }
+		.user-details {
+			background-color: #33cc33;
+			color: #fff;
+		}
 
-        .user-details h3 {
-            margin-bottom: 10px;
-        }
+		.user-details h3 {
+			margin-bottom: 10px;
+		}
 
-        .tweet-feed {
-            background-color: #66ccff;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-        }
+		.tweet-feed {
+			background-color: #66ccff;
+			flex: 1;
+			display: flex;
+			flex-direction: column;
+		}
 
-        .tweet-feed h3 {
-            color: #fff;
-            margin-bottom: 10px;
-        }
+		.tweet-feed h3 {
+			color: #fff;
+			margin-bottom: 10px;
+		}
 
-        .tweet-list {
-            flex: 1;
-            overflow-y: auto; /* Ensure scrolling */
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-            max-height: 70vh; /* Set max-height to ensure it scrolls */
-        }
+		.tweet-list {
+			flex: 1;
+			overflow-y: auto;
+			/* Ensure scrolling */
+			padding: 20px;
+			background-color: #fff;
+			border-radius: 8px;
+			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+			max-height: 70vh;
+			/* Set max-height to ensure it scrolls */
+		}
 
-        .tweet-list ul {
-            list-style-type: none;
-            padding: 0;
-        }
+		.tweet-list ul {
+			list-style-type: none;
+			padding: 0;
+		}
 
-        .tweet-list li {
-            margin-bottom: 20px;
-            padding: 10px;
-            border-bottom: 1px solid #e0e0e0;
-        }
+		.tweet-list li {
+			margin-bottom: 20px;
+			padding: 10px;
+			border-bottom: 1px solid #e0e0e0;
+		}
 
-        .tweet-list li:last-child {
-            border-bottom: none;
-        }
+		.tweet-list li:last-child {
+			border-bottom: none;
+		}
 
-        .tweet-list strong {
-            font-weight: bold;
-            color: #007bff;
-        }
+		.tweet-list strong {
+			font-weight: bold;
+			color: #007bff;
+		}
 
-        .tweet-list small {
-            color: #999;
-            display: block;
-            margin-top: 5px;
-        }
+		.tweet-list small {
+			color: #999;
+			display: block;
+			margin-top: 5px;
+		}
 
-        .logout-button {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            color: #007bff;
-            text-decoration: none;
-            font-weight: bold;
-        }
+		.logout-button {
+			position: absolute;
+			top: 20px;
+			right: 20px;
+			color: #007bff;
+			text-decoration: none;
+			font-weight: bold;
+		}
 
-        .logout-button:hover {
-            text-decoration: underline;
-        }
-    </style>
+		.logout-button:hover {
+			text-decoration: underline;
+		}
+	</style>
 </head>
 
 <body>
-    <div class="home-container">
-        <!-- Left Panel -->
-        <div class="left-panel">
-            <!-- New Tweet Section -->
-            <div class="section new-tweet">
-                <h2>New Tweet</h2>
-                <form action="/tweet" method="post">
-                    <textarea name="content" id="content" placeholder="What's happening?" required></textarea><br>
-                    <input type="submit" value="Tweet">
-                </form>
-            </div>
+	<div class="home-container">
+		<!-- Left Panel -->
+		<div class="left-panel">
+			<!-- New Tweet Section -->
+			<div class="section new-tweet">
+				<h2>New Tweet</h2>
+				<form action="/tweet" method="post">
+					<textarea name="content" id="content" placeholder="What's happening?" required></textarea><br>
+					<input type="submit" value="Tweet">
+				</form>
+			</div>
 
-            <!-- User Details Section -->
-            <div class="section user-details">
-                <h3>User Details</h3>
-                <p>Name: <span th:text="${username}">John Doe</span></p>
-                <p>Email: <span th:text="${email}">johndoe@example.com</span></p>
-            </div>
-        </div>
+			<!-- User Details Section -->
+			<div class="section user-details">
+				<h3>User Details</h3>
+				<p>Name: <span th:text="${username}">John Doe</span></p>
+				<p>Email: <span th:text="${email}">johndoe@example.com</span></p>
+			</div>
+		</div>
 
-        <!-- Main Panel -->
-        <div class="main-panel">
-            <!-- Tweet Feed Section -->
-            <div class="section tweet-feed">
-                <h3>Your Tweets</h3>
-                <div class="tweet-list" id="tweetList">
-                    <ul>
-                        <!-- Iterate through the tweets and display the username and tweet content -->
-                        <li th:each="tweet : ${tweets}">
-                            <!-- Display the username associated with the tweet -->
-                            <strong th:text="${tweet.user.username}">User Name</strong>:
-                            <span th:text="${tweet.content}">This is a tweet content.</span>
-                            <br>
-                            <!-- Display the timestamp formatted as date and time -->
-                            <small th:text="${tweet.formattedTimestamp}">Date and Time</small>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
+		<!-- Main Panel -->
+		<div class="main-panel">
+			<!-- Tweet Feed Section -->
+			<div class="section tweet-feed">
+				<h3>Your Tweets</h3>
+				<div class="tweet-list" id="tweetList">
+					<ul>
+						<!-- Iterate through the tweets and display the username and tweet content -->
+						<li th:each="tweet : ${tweets}">
+							<!-- Display the username associated with the tweet -->
+							<strong th:text="${tweet.user.username}">User Name</strong>:
+							<span th:text="${tweet.content}">This is a tweet content.</span>
+							<br>
+							<!-- Display the timestamp formatted as date and time -->
+							<small th:text="${tweet.formattedTimestamp}">Date and Time</small>
+							<!-- Like button -->
+							<span class="like-button">
+								<i class="far fa-heart" id="likeIcon"></i>
+								<span>0</span> <!-- Like count -->
+							</span>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
 
-    <!-- Logout Button -->
-    <a href="/logout" class="logout-button">Logout</a>
+	<!-- Logout Button -->
+	<a href="/logout" class="logout-button">Logout</a>
 
-    <script>
-        // Function to scroll to the bottom of the tweet list
-        function scrollToBottom() {
-            const tweetList = document.getElementById('tweetList');
-            setTimeout(() => {
-                tweetList.scrollTop = tweetList.scrollHeight;
-            }, 100); // Delay to ensure the DOM is updated with the new tweet
-        }
+	<script>
+		// Function to scroll to the bottom of the tweet list
+		function scrollToBottom() {
+			const tweetList = document.getElementById('tweetList');
+			setTimeout(() => {
+				tweetList.scrollTop = tweetList.scrollHeight;
+			}, 100); // Delay to ensure the DOM is updated with the new tweet
+		}
 
-        // Call scrollToBottom on page load to move the scroll to the bottom initially
-        window.onload = function () {
-            scrollToBottom();
-        };
-    </script>
+		// Call scrollToBottom on page load to move the scroll to the bottom initially
+		window.onload = function () {
+			scrollToBottom();
+		};
+
+		document.addEventListener('DOMContentLoaded', function () {
+			document.querySelectorAll('.like-button').forEach(button => {
+				button.addEventListener('click', function () {
+					const icon = this.querySelector('i');
+					if (icon.classList.contains('far')) {
+						icon.classList.remove('far');
+						icon.classList.add('fas');
+					} else {
+						icon.classList.remove('fas');
+						icon.classList.add('far');
+					}
+				});
+			});
+		});
+	</script>
 </body>
 
 </html>

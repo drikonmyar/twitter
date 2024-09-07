@@ -82,34 +82,31 @@ p {
 }
 
 .tweet-list li {
-	position: relative;
-	/* Necessary to position the like button relative to the li */
-	padding-right: 50px;
-	/* Provide space for the like button */
+    position: relative; /* Necessary to position the like button relative to the li */
+    padding-right: 50px; /* Provide space for the like button */
 }
 
 .like-button {
-	position: absolute;
-	right: 10px;
-	top: 10px;
-	/* Adjust top positioning if needed */
-	color: #999;
-	cursor: pointer;
-	font-size: 14px;
-	display: inline-flex;
-	align-items: center;
+    position: absolute;
+    right: 10px;
+    top: 10px; /* Adjust top positioning if needed */
+    color: #999;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
 }
 
 .like-button i {
-	margin-right: 5px;
-	transition: color 0.3s ease;
+    margin-right: 5px;
+    transition: color 0.3s ease;
 }
 
 .like-button:hover i {
-	color: #e74c3c;
+    color: #e74c3c;
 }
 
 .like-button span {
-	font-size: 12px;
-	color: #333;
+    font-size: 12px;
+    color: #333;
 }

@@ -214,7 +214,7 @@
 							<!-- Like button -->
 							<span class="like-button">
 								<i class="far fa-heart" id="likeIcon"></i>
-								<span>0</span> <!-- Like count -->
+								<span th:text="${tweet.likes}">0</span> <!-- Like count -->
 							</span>
 						</li>
 					</ul>

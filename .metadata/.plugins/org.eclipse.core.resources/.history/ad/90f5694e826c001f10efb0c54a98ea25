@@ -207,7 +207,7 @@
 						<li th:each="tweet : ${tweets}">
 							<!-- Display the username associated with the tweet -->
 							<strong th:text="${tweet.user.username}">User Name</strong>:
-							<span th:text="${tweet.content}">This is a tweet content.</span>
+							<span th:text="${tweet.content}" style="padding: 70px;">This is a tweet content.</span>
 							<br>
 							<!-- Display the timestamp formatted as date and time -->
 							<small th:text="${tweet.formattedTimestamp}">Date and Time</small>
