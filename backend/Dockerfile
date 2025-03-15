@@ -1,17 +1,17 @@
-# Use Maven base image to build the application
-FROM maven:3.8.6-eclipse-temurin-17 AS builder
+# Use Maven with JDK 21 to build the application
+FROM maven:3.9.6-eclipse-temurin-21 AS builder
 
-# Set working directory to backend (where pom.xml is located)
+# Set working directory inside the container
 WORKDIR /app
 
 # Copy the backend folder to /app
 COPY backend /app
 
-# Run Maven build (now it will find pom.xml)
+# Run Maven build
 RUN mvn clean package -DskipTests
 
-# Use a lightweight JDK image for final container
-FROM eclipse-temurin:17-jdk
+# Use a lightweight JDK 21 image for running the application
+FROM eclipse-temurin:21-jdk
 WORKDIR /app
 
 # Copy the built JAR file from the builder stage
