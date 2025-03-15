@@ -1,3 +1,5 @@
+Deployed through `render` - https://twitter-1s4j.onrender.com
+
 Functionalities:
 
 1. New users can sign up to access the home page for the first time
