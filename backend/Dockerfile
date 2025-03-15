@@ -4,7 +4,13 @@ FROM eclipse-temurin:17-jdk
 # Set the working directory in the container
 WORKDIR /app
 
-# Copy the JAR file into the container (ensure the correct build path)
+# Copy the Maven/Gradle files and source code
+COPY backend/twitter ./
+
+# Build the application (if using Maven)
+RUN ./mvnw clean package -DskipTests
+
+# Copy the built JAR file
 COPY target/*.jar app.jar
 
 # Expose port 8081 (matches your application)
