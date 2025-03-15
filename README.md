@@ -1,4 +1,4 @@
-Deployed through `render` - https://twitter-1s4j.onrender.com
+Deployed through `Render` - https://twitter-1s4j.onrender.com
 
 `Username` = admin
 `Password` = admin
