@@ -1,12 +1,13 @@
 # Use Maven base image to build the application
 FROM maven:3.8.6-eclipse-temurin-17 AS builder
 
+# Set working directory to backend (where pom.xml is located)
 WORKDIR /app
 
-# Copy the project files (including pom.xml)
-COPY . .
+# Copy the backend folder to /app
+COPY backend /app
 
-# Run Maven build
+# Run Maven build (now it will find pom.xml)
 RUN mvn clean package -DskipTests
 
 # Use a lightweight JDK image for final container
