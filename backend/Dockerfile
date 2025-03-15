@@ -5,7 +5,7 @@ FROM eclipse-temurin:17-jdk
 WORKDIR /app
 
 # Copy the Maven/Gradle files and source code
-COPY backend/twitter ./
+COPY backend ./
 
 # Build the application (if using Maven)
 RUN ./mvnw clean package -DskipTests
