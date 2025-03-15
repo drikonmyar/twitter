@@ -1,20 +1,20 @@
-# Use an official JDK runtime as a parent image
-FROM eclipse-temurin:17-jdk
+# Use an official Maven image as base
+FROM maven:3.8.6-eclipse-temurin-17 AS builder
 
-# Set the working directory in the container
 WORKDIR /app
 
-# Copy the Maven/Gradle files and source code
-COPY backend ./
+# Copy source code
+COPY . .
 
-# Build the application (if using Maven)
-RUN ./mvnw clean package -DskipTests
+# Run Maven build
+RUN mvn clean package -DskipTests
 
-# Copy the built JAR file
-COPY target/*.jar app.jar
+# Use a lightweight JDK image for final container
+FROM eclipse-temurin:17-jdk
+WORKDIR /app
 
-# Expose port 8081 (matches your application)
+# Copy the JAR from the builder stage
+COPY --from=builder /app/target/*.jar app.jar
+
 EXPOSE 8081
-
-# Command to run the application
 CMD ["java", "-jar", "app.jar"]
